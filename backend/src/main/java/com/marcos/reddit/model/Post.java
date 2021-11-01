@@ -27,7 +27,7 @@ import lombok.NoArgsConstructor;
 public class Post {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+  private Long postId;
 
   @NotBlank(message = "Post Name can't be null or empty")
   private String postName;
@@ -42,7 +42,7 @@ public class Post {
   private Integer voteCount;
 
   @ManyToOne(fetch = FetchType.LAZY)
-  @JoinColumn(name = "id", referencedColumnName = "userId")
+  @JoinColumn(name = "userId", referencedColumnName = "userId")
   private User user;
 
   private Instant createdDate;
